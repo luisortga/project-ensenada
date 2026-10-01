@@ -1,3 +1,8 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import imagesLoaded from "imagesloaded";
+
+// Es obligatorio registrar el plugin antes de usarlo
 gsap.registerPlugin(ScrollTrigger);
 const intro = gsap.timeline();
 
@@ -98,10 +103,10 @@ ScrollTrigger.create({
   animation: intro,
   scrub: 1.2,
   trigger: ".intro",
-  start: "top",
-  end: "140%",
+  start: "top top",
+  end: "+=250%", // Cambia "140%" por un porcentaje más alto o pixeles como "+=2000"
   pin: true,
-  pinSpacing: false,
+  pinSpacing: true, // Cambia a true si los elementos inferiores se solapan o quedan ocultos
   onLeave: () => (cityContent.style.overflow = "auto"),
   onEnterBack: () => (cityContent.style.overflow = "hidden"),
 });
